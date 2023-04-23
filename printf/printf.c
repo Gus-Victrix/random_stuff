@@ -8,7 +8,7 @@
  * Return: -1 if error encountered, number of printed characters otherwise.
  */
 
-int _printf(const char *format, ...)
+size_t _printf(const char *format, ...)
 {
 	size_t a = 0, flushed, *pointer;
 	unsigned short i = 0, *index;
