@@ -34,24 +34,6 @@ int _printf(const char *format, ...)
 			flushed += backslash_handler(format, pointer, buffer, index, params);
 			a += 2;
 			continue;
-			switch (*(format + 1))
-			{
-				case 92:
-					c = 92;
-					str = &c;
-					flushed += _push(str, 1, index, buffer);
-					a += 2;
-					break;
-				case 'n':
-					c = 10;
-					str = &c;
-					flushed += _push(str, 1, index, buffer);
-					a += 2;
-					break;
-				case 'b':
-					c = 
-
-			}
 		}
 		c = format[a];
 		flushed += _push(rep, 1, index, buffer);
