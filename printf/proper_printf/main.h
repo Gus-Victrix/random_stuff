@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 /*main functions*/
 int _printf(const char *format, ...);
@@ -30,6 +31,11 @@ int _address(const char *format, int *ptr, char *buffer, unsigned short *index, 
 int _float(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 
+/*Toolkit*/
+char *from_int(long long decimal, unsigned short base);
+int _strlen(char *str);
+char *_rev(char *string);
+char *upper(char *string);
 
 
 #endif /*MAIN_H*/

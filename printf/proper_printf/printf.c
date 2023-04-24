@@ -58,7 +58,7 @@ int (*get_func(const char *format, int *ptr))(const char *, int *, char *,
 	};
 	unsigned short i = 0;
 
-	*(ptr)++;
+	(*ptr)++;
 	while (function[i].f)
 	{
 		if (function[i].c == *(format + *ptr))
@@ -68,3 +68,51 @@ int (*get_func(const char *format, int *ptr))(const char *, int *, char *,
 	return (function[i].f);
 }
 
+
+/**
+ * _push - Pushes input character string to a buffer.
+ *
+ * @str: Character string to be pushed.
+ * @num: Number of characters in str to be pushed.
+ * @buff: Buffer to receive character string.
+ * @index: Index of empty spot in buffer.
+ *
+ * Return: Number of characters added to buffer.
+ */
+
+int _push(char *str, int num, unsigned short *index, char *buffer)
+{
+	int flushed = 0;
+	unsigned short i = 0;
+
+	while (i < num)
+	{
+		if (*index == 1024)
+		{
+			flushed += _flush(buffer, index);
+		}
+		buffer[*index] = str[i];
+		i++, (*index)++;
+	}
+	return (flushed);
+}
+
+/**
+ * _flush - Flushes a buffer of specified size.
+ *
+ * @buffer: Character buffer to be flushed.
+ * @index: Index to which the buffer is filled.
+ *
+ * Return: Number of printed characters.
+ */
+
+unsigned short _flush(char *buffer, unsigned short *index)
+{
+	unsigned short i = 0;
+
+	i = *index;
+	write(1, buffer, *index);
+	*index = 0;
+
+	return (i);
+}
