@@ -32,6 +32,7 @@ int _string(const char *format, int *ptr, char *buffer, unsigned short *index, v
 int _hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _upper_hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _unsinged(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _rot13(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _special_string(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _octal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);

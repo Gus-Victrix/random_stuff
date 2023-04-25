@@ -29,6 +29,7 @@ int _printf(const char *format, ...)
 			func = get_func(format, ptr);
 			if (!func)
 			{
+				printed += _push((char *)format + pos - 1, 2, index, buffer);
 				pos++;
 				continue;
 			}
