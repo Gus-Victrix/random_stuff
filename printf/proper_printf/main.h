@@ -40,6 +40,7 @@ int _reverse(const char *format, int *ptr, char *buffer, unsigned short *index, 
 
 /*Toolkit*/
 char *from_int(long long decimal, unsigned short base);
+char *from_unsigned(size_t decimal, unsigned short base);
 int _strlen(char *str);
 char *_rev(char *string);
 char *upper(char *string);
