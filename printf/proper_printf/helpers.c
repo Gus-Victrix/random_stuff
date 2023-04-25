@@ -274,7 +274,7 @@ int _reverse(const char *format, int *ptr, char *buffer, unsigned short *index, 
 }
 
 /**
- * _address - Handles case 'r'.
+ * _address - Handles case 'p'.
  *
  * @format: This is the format string being printed by _printf.
  * @ptr: This is the current position being handled on format.

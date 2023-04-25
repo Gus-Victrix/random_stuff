@@ -20,6 +20,12 @@
           {'i', _integer},
           {'x', _hexadecimal},
           {'X', _upper_hexadecimal},
+		  {'o', _octal},
+		  {'b', _binary},
+		  {'S', _special_string},
+		  {'r', _reverse},
+		  {'R', _rot13},
+		  {'p', _address},
           {0,0}
       };
       unsigned short i = 0;
