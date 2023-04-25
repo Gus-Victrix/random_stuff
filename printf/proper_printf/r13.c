@@ -23,7 +23,7 @@ char *r13(char *string)
 					c -= 26;
 		}
 		string[i] = c;
-		i++
+		i++;
 	}
 	return (string);
 }

@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int pos = 0, *ptr = &pos, printed = 0;
 	unsigned short buffer_index = 0, *index = &buffer_index;
 	char buffer[1024];
-	int (*func)();
+	int (*func)(const char *, int *, char *, unsigned short *, va_list);
 	va_list params;
 
 	/*Checking if input string is empty*/

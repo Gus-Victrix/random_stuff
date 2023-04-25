@@ -1,68 +1,44 @@
+#include <limits.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
- * main - Comparing printf() and _printf()
+ * main - Entry point
  *
- * @argc: Number of commandline arguments.
- * @argv: Array of commandline arguments.
- *
- * Return: 0.
+ * Return: Always 0
  */
-
-int main(const int argc, const char **argv)
+int main(void)
 {
-	short i = 0;
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;
 
-	while (i < argc)
-	{
-		printf("Handling simple string");
-		_printf("Handling simple string");
-		if (**argv == 'c')
-		{
-			printf("Handling a character: %c", 'c');
-			_printf("Handling a character: %c", 'c');
-		}
-		if (**argv == 's')
-		{
-			printf("Handling a string: %s", "This is a string");
-			_printf("Handling a string: %s", "This is a string");
-		}
-		if (**argv == '%')
-		{
-			printf("Handling a percent: %%");
-			_printf("Handling a percent: %%");
-		}
-		if (**argv == 'd')
-		{
-			printf("Handling d as an integer: %d", 14);
-			_printf("Handling d as an integer: %d", 14);
-		}
-		if (**argv == 'i')
-		{
-			printf("Handling i as an integer: %i", 14);
-			_printf("Handling i as an integer: %i", 14);
-		}
-		if (**argv == 'x')
-		{
-			printf("Handling x as a hexadecimal: %x", 14);
-			_printf("Handling x as a hexadecimal: %x", 14);
-		}
-		if (**argv == 'X')
-		{
-			printf("Handling X as a capitalized hexadecimal: %X", 14);
-			_printf("Handling X as a capitalized hexadecimal: %X", 14);
-		}
-		if (**argv == 'f')
-		{
-			printf("Handling f as a floating point number: %f", 1.234567);
-			_printf("Handling f as a floating point number: %f", 1.234567);
-		}
-		if (**argv == 'p')
-		{
-			printf("Handling p as an address: %p", &i);
-			_printf("Handling p as an address: %p", &i);
-		}
-		(*argv)++, i++;
-	}
-	return (0);
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    addr = (void *)0x7ffe637541f0;
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+    _printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");
+    return (0);
 }

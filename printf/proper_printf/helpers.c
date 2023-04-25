@@ -106,10 +106,8 @@ int _hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *ind
 	char *s;
 	int i = 0;
 
-	s = malloc(sizeof(char) * 2);
 	s = "0x";
 	i +=_push(s, 2, index, buffer);
-	free(s);
 	(*ptr)++;
 
 	s = from_int(va_arg(params, unsigned), 16);
@@ -134,10 +132,8 @@ int _upper_hexadecimal(const char *format, int *ptr, char *buffer, unsigned shor
 	char *s;
 	int i = 0;
 
-	s = malloc(sizeof(char) * 2);
 	s = "0X";
 	i +=_push(s, 2, index, buffer);
-	free(s);
 
 	s = upper(from_int(va_arg(params, unsigned), 16));
 	i +=_push(s, _strlen(s), index, buffer);
@@ -162,10 +158,8 @@ int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, v
 	char *s;
 	int i = 0;
 
-	s = malloc(sizeof(char) * 2);
 	s = "0b";
 	i +=_push(s, 2, index, buffer);
-	free(s);
 
 	s = from_int(va_arg(params, unsigned), 2);
 	i +=_push(s, _strlen(s), index, buffer);
@@ -190,10 +184,8 @@ int _octal(const char *format, int *ptr, char *buffer, unsigned short *index, va
 	char *s;
 	int i = 0;
 
-	s = malloc(sizeof(char) * 1);
 	s = "0";
 	i +=_push(s, 1, index, buffer);
-	free(s);
 
 	s = from_int(va_arg(params, unsigned), 8);
 	i +=_push(s, _strlen(s), index, buffer);
@@ -290,10 +282,8 @@ int _address(const char *format, int *ptr, char *buffer, unsigned short *index, 
 	int i = 0;
 
 	(*ptr)++;
-	s = malloc(sizeof(char) * 2);
 	s = "0X";
 	i += _push(s, 2, index, buffer);
-	free(s);
 	s = va_arg(params, void *);
 	s = upper(from_int((long long)s, 16));
 	i += _push(s, _strlen(s), index, buffer);

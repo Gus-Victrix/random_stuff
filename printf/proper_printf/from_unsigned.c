@@ -40,11 +40,6 @@ char *from_unsigned(size_t decimal, unsigned short base)
 			ret[i] = hex + '0';
 		decimal /= base;
 	}
-	if (sign)
-	{
-		ret[i] = '-';
-		i++;
-	}
 	ret[i] = 0;
 
 	return (_rev(ret));
