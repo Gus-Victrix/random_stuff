@@ -21,21 +21,29 @@ typedef struct func_stores {
 			va_list params);
 } functions;
 
+/*Modifiers*/
+
 /*Helper functions*/
+int _float(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _address(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _percentile(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _character(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _string(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _upper_hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
-int _address(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
-int _float(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _rot13(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _special_string(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _octal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _reverse(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 
 /*Toolkit*/
 char *from_int(long long decimal, unsigned short base);
 int _strlen(char *str);
 char *_rev(char *string);
 char *upper(char *string);
-
+char *show_non_print(char *string);
+char *r13(char *string);
 
 #endif /*MAIN_H*/

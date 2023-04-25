@@ -25,7 +25,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[pos] == '%')
 		{
+			pos++;
 			func = get_func(format, ptr);
+			if (!func)
+			{
+				pos++;
+				continue;
+			}
 			printed += func(format, ptr, buffer, index, params);
 		}
 		printed += _push((char *)format + pos, 1, index, buffer);
