@@ -11,7 +11,9 @@
  *
  * Return: Number of characters printed while function runs.
  */
-int _address(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
+
+int _address(const char *format, int *ptr, char *buffer, unsigned short *index,
+		va_list params)
 {
 	char *s;
 	int i = 0;

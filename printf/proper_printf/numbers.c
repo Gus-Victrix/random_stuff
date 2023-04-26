@@ -12,7 +12,7 @@
  * Return: Number of characters printed while function runs.
  */
 
-int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
 {
 	char *s;
 	int i;
@@ -36,12 +36,12 @@ int _integer(const char *format, int *ptr, char *buffer, unsigned short *index, 
  * Return: Number of characters printed while function runs.
  */
 
-int _unsinged(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _unsinged(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
 {
 	char *s;
 	int i;
 
-	s = from_unsigned(va_arg(params, unsinged), 10);
+	s = from_unsigned(va_arg(params, unsigned), 10);
 	i =_push(s, _strlen(s), index, buffer);
 	free(s);
 	(*ptr)++;
@@ -59,6 +59,7 @@ int _unsinged(const char *format, int *ptr, char *buffer, unsigned short *index,
  *
  * Return: Number of characters printed while function runs.
  */
+
 int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
 {
 	char *s;
@@ -74,7 +75,6 @@ int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, v
 	return (i);
 }
 
-#include "main.h"
 
 /**
  * _address - Handles case 'p'.
@@ -87,6 +87,7 @@ int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, v
  *
  * Return: Number of characters printed while function runs.
  */
+
 int _address(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
 {
 	char *s;
@@ -100,7 +101,6 @@ int _address(const char *format, int *ptr, char *buffer, unsigned short *index, 
 	i += _push(s, _strlen(s), index, buffer);
 	return (i);
 }
-#include "main.h"
 
 /**
  * _hexadecimal - Handles case 'x'.
@@ -113,6 +113,7 @@ int _address(const char *format, int *ptr, char *buffer, unsigned short *index, 
  *
  * Return: Number of characters printed while function runs.
  */
+
 int _hexadecimal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params)
 {
 	char *s;

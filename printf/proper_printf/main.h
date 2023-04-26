@@ -21,9 +21,19 @@ typedef struct func_stores {
 			va_list params);
 } functions;
 
-/*Modifiers*/
+/*Modifiers of buffer*/
+char *buff_shift(char *buffer, unsigned short *index, short shiftwidth,
+		short group_size);
+void buff_replace(char *mod_pos, short mod_width, char padding);
+void pad_mgr(char *buffer, unsigned short *index, unsigned short initial,
+		char direction, char padding, unsigned short pad_size);
+
 
 /*Helper functions*/
+int _special_padding(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _short(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _precision(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _long(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _float(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _address(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _percentile(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
@@ -38,6 +48,8 @@ int _special_string(const char *format, int *ptr, char *buffer, unsigned short *
 int _octal(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _binary(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
 int _reverse(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+int _padding(const char *format, int *ptr, char *buffer, unsigned short *index, va_list params);
+
 
 /*Toolkit*/
 char *from_int(long long decimal, unsigned short base);
@@ -47,5 +59,10 @@ char *_rev(char *string);
 char *upper(char *string);
 char *show_non_print(char *string);
 char *r13(char *string);
+void _truncate(unsigned short position, int precision, unsigned short *index,
+		char *buffer);
+unsigned short _buffseek(char *buffer, unsigned short position, unsigned short
+		*index, char c);
+int _atoi(char *);
 
 #endif /*MAIN_H*/
