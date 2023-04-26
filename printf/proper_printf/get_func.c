@@ -66,7 +66,7 @@ int _padding(const char *format,int *ptr, char *buffer, unsigned short *index,
 	c = *(format + *ptr);
 	if (c >= '0' && c <= '9')
 	{
-		width = _atoi(format + *ptr);
+		width = _atoi((char *)format + *ptr);
 		while (*(format + *ptr) >= '0' && *(format + *ptr) <= '9')
 			(*ptr)++;
 		i = *index;

@@ -32,4 +32,4 @@ void pad_mgr(char *buffer, unsigned short *index, unsigned short initial,
 		buffer[*index] = padding;
 		(*index)++, i++;
 	}
-{
+}
